@@ -94,9 +94,10 @@ oc deploy cakephp-mysql-example --latest
 
                   <h2>User information</h2>
                   <p>
-                    <?php $username = env("REMOTE_USERNAME"); ?>
-                    <?php if ($username) : ?>
-                        Welcome, <span class="code"><?php print_r($username); ?></span>!
+                    <?php
+                    $user = $this->request->getHeaderLine('User-Agent');
+                    if ($user) : ?>
+                        Welcome, <span class="code"><?php print_r($user); ?></span>!
                     <?php else : ?>
                         You are not logged in.
                     <?php endif; ?>
