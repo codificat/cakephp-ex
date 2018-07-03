@@ -92,6 +92,16 @@ oc deploy cakephp-mysql-example --latest
                     <li><a href="http://git-scm.com/documentation">Git documentation</a></li>
                   </ul>
 
+                  <h2>User information</h2>
+                  <p>
+                    <?php $username = env("REMOTE_USERNAME"); ?>
+                    <?php if ($username) : ?>
+                        Welcome, <span class="code"><?php print_r($username); ?></span>!
+                    <?php else : ?>
+                        You are not logged in.
+                    <?php endif; ?>
+                  </p>
+
                 <h2>Request information</h2>
                 <p>Page view count:
                <?php
